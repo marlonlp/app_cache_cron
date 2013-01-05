@@ -1,6 +1,8 @@
 <?php
 date_default_timezone_set('America/Sao_Paulo');
+//Definição do diretório que será monitorado para modificações;
 $dir = "./";
+//Variáveis que armazenarão as informações dos arquivos;
 $cache = null;
 $modf = null;
 if (is_dir($dir)) {
@@ -8,9 +10,11 @@ if (is_dir($dir)) {
         while (($file = readdir($dh)) !== false) {
             if ($file != "." && $file != ".." && $file != "Thumbs.db") {
                 if ($file == "cron.appcache") {
+                    //Se existir o arquivo appcache, é armazenada a informação da última modificação na variável;
                     $cache .= filemtime($dir.$file);
                 }
                 if ($file == "index.html" || $file == "style.css" || $file == "logo.png") {
+                    //Armazena em um array a informação da última modificação dos arquivos da aplicação;
                     $modf .= filemtime($dir.$file).",";
                 }
             }
@@ -18,7 +22,9 @@ if (is_dir($dir)) {
         closedir($dh);
         $arquivos = array($modf);
         foreach ($arquivos as $arquivo) {
+            //Varre as informações dos arquivos que deverão ser armazenados no cache e compara com o arquivo cache manifest;
             if ($cache < $arquivo) {
+                //Se a última modificação do arquivo cache manifest for anterior à algum dos arquivos é feita a atualização;
                 $result = "Houve Atualização";
                 $arqCache = "cron.appcache";
                 $dt_modificacao = date("d/m/Y - H:i");
