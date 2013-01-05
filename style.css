@@ -1,0 +1,26 @@
+/*  Documento   : style
+    Criado em   : 05/01/2013, 00:36:20
+    Autor       : marlonp
+    Descrição   :
+        Regras a serem seguidas pelo CSS.
+*/
+
+* { 
+    padding: 0; 
+    margin: 0; 
+}
+
+header {
+    background: #ccc;
+    height: 200px;
+    margin: 50px auto;
+    padding: 30px 0 0 0;
+    text-align: center;
+    width: 50%;
+}
+
+section {
+    border: 1px solid #ccc;
+    margin: auto;
+    width: 350px;
+}

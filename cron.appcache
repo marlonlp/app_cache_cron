@@ -1,0 +1,13 @@
+CACHE MANIFEST
+# modificao em 05/01/2013 - 18:37
+
+CACHE:
+index.html
+logo.png
+style.css
+
+NETWORK:
+login.php
+
+FALLBACK:
+/ offline.html

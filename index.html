@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html manifest="cron.appcache">
+  <head>
+    <title>Exemplo de uso de Cache + PHP + cron</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.applicationCache.addEventListener('updateready', function(e) {
+            if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+                window.applicationCache.swapCache();
+                if (confirm('Uma nova versão dessa aplicação está disponível. Deseja carregar ?')) {
+                    window.location.reload();
+                }
+            }
+        }, false);
+    </script>
+  </head>
+  <body>
+      <header>
+        <img src="logo.png" alt="HTML5">
+        <h1>Aplicação Web Offline</h1>
+        <h1>Usando AppCache</h1>
+        <br>
+        <h2>Utilizando o atualização automática via CRON</h2>
+      </header>
+    <section>
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-6963109336868120";
+        /* Layouts */
+        google_ad_slot = "3463706952";
+        google_ad_width = 336;
+        google_ad_height = 280;
+        //-->
+        </script>
+        <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+    </section>      
+  </body>
+</html>
